@@ -5,7 +5,7 @@ This repo contains the code for a Route Planning project using OpenStreetMaps an
 <img src="map.png" width="600" height="450" />
 
 ## Why
-What do an Amazon delivery, searching relatives in the Kennedy family tree, and someone using Google Maps to go from A to B have in common? If you think about these problems from a Computer Science perspective, they involve route planning and path search. Fascinating, isn't it? If you are curious to know how one might solve these tasks via the renown A* (pronounced "A-start") search algorithm, then you have come to the right place. This repository will show how to access OpenStreetMap data, finding the shortest path from coordinates on a map and display them - all written in C++.
+What do an Amazon delivery, searching relatives in the Kennedy family tree, and someone using Google Maps to go from A to B have in common? If you think about these problems from a Computer Science perspective, they involve route planning and path search. Fascinating, isn't it? If you are curious to know how to solve these tasks via the renowned A* search algorithm, you have come to the right place. This repository will show how to access OpenStreetMap data, finding the shortest path from coordinates on a map and display them - all written in C++.
 
 ## How
 The A* algorithm is quite similar to other search algorithms you might have seen before, such as breadth-first search (BFS), except for the additional step of computing a heuristic and using that heuristic (in addition to the cost) to find the next node. The following is psuedocode for the algorithm. Although the pseudocode shows the complete algorithm in a single function, we will split parts of the algorithm into separate functions in the code:
