@@ -1,8 +1,42 @@
 # C++ OpenStreetMap Route Planning Project
 
-This repo contains the starter code for the Route Planning project.
+This repo contains the code for a Route Planning project using OpenStreetMaps and C++.
 
 <img src="map.png" width="600" height="450" />
+
+## Why
+What do an Amazon delivery, searching relatives in the Kennedy family tree, and someone using Google Maps to go from A to B have in common? If you think about these problems from a Computer Science perspective, they involve route planning and path search. Fascinating, isn't it? If you are curious to know how one might solve these tasks via the renown A* (pronounced "A-start") search algorithm, then you have come to the right place. This repository will show how to access OpenStreetMap data, finding the shortest path from coordinates on a map and display them - all written in C++.
+
+## How
+The A* algorithm is quite similar to other search algorithms you might have seen before, such as breadth-first search (BFS), except for the additional step of computing a heuristic and using that heuristic (in addition to the cost) to find the next node. The following is psuedocode for the algorithm. Although the pseudocode shows the complete algorithm in a single function, we will split parts of the algorithm into separate functions in the code:
+
+```
+Search(grid, initial_point, goal_point):
+	* Initialize an empty list of open nodes
+	* Initialize a starting node with the following:
+		* x and y values given by initial_point
+		* g = 0, where g is the cost for each move
+		* h given by the heuristic function (a function of the current coordinates and the goal, e.g. imagine the air distance)
+	
+	* Add the new node to the list of open nodes.
+	* while the list of open nodes is not empty, do:
+		* Sort the open list by f-value  (g + h aka lowest total cost + heuristic)
+		* Pop the optimal node (called the current node).
+		* Mark the node's coordinates in the grid as part of the path.
+		
+		* if the current node is the goal node:
+			* return the grid
+		* else, expand the search to the current node's neighbors. This includes the following steps:
+			* Check each neighbor node in the grid to ensure that the node is empty, it hasn't been closed and is not an obstacle
+			* If the node is empty, compute the cost (g value) and the heuristic (h value), and add to the list of open nodes
+			* Mark the cell as closed
+	* If you exit the while loop because the list of open nodes is empty, you have run out of new nodes to explore and haven't found a path.
+```
+
+For further details, refer to the paper by [Hart, Nielsson and Raphael (1968), _A Formal Basis for the Heuristic Determination of Minimum Cost Paths_](https://ieeexplore.ieee.org/document/4082128) or the implementation in `/src/route_planner.cpp`.
+
+## What
+Up next you find instructions for cloning this repository, installing the necessary dependencies, compiling via cmake and make, testing and running the code. 
 
 ## Cloning
 
