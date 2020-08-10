@@ -16,7 +16,8 @@ Search(grid, initial_point, goal_point):
 	* Initialize a starting node with the following:
 		* x and y values given by initial_point
 		* g = 0, where g is the cost for each move
-		* h given by the heuristic function (a function of the current coordinates and the goal, e.g. imagine the air distance)
+		* h given by the heuristic function (a function of the current coordinates 
+		  and the goal, e.g. imagine the air distance)
 	
 	* Add the new node to the list of open nodes.
 	* while the list of open nodes is not empty, do:
@@ -26,11 +27,14 @@ Search(grid, initial_point, goal_point):
 		
 		* if the current node is the goal node:
 			* return the grid
-		* else, expand the search to the current node's neighbors. This includes the following steps:
-			* Check each neighbor node in the grid to ensure that the node is empty, it hasn't been closed and is not an obstacle
-			* If the node is empty, compute the cost (g value) and the heuristic (h value), and add to the list of open nodes
+		* else, expand the search to the current node's neighbors:
+			* Check each neighbor node in the grid to ensure that the node is empty
+			* That it hasn't been closed and is not an obstacle
+			* If the node is empty, compute the cost (g) and the heuristic (h)
+			* Add node to the list of open nodes
 			* Mark the cell as closed
-	* If you exit the while loop because the list of open nodes is empty, you have run out of new nodes to explore and haven't found a path.
+	* If you exit the while loop because the list of open nodes is empty, 
+	  you have run out of new nodes to explore and haven't found a path.
 ```
 
 For further details, refer to the paper by [Hart, Nielsson and Raphael (1968), _A Formal Basis for the Heuristic Determination of Minimum Cost Paths_](https://ieeexplore.ieee.org/document/4082128) or the implementation in `/src/route_planner.cpp`.
